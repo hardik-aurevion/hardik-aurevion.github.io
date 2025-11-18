@@ -1,243 +1,682 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hardik Patel – Full Stack Developer & AI Engineer</title>
+  <meta charset="UTF-8" />
+  <title>Hardik Patel – AI-Powered Full Stack Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<style>
-/* -------- Global Reset -------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-}
+  <style>
+    /* Global reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* -------- Apple Font -------- */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-    Inter, system-ui, sans-serif;
-  background: #f5f5f7;
-  color: #1b1b1f;
-  line-height: 1.6;
-}
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        Inter, sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+    }
 
-/* -------- Layout -------- */
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 0;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* -------- Hero (Apple Style + AI Glow) -------- */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
+    /* Layout */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
 
-.hero h1 {
-  font-size: 3.4rem;
-  letter-spacing: -1px;
-  font-weight: 700;
-}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
 
-.ai-glow {
-  color: #4f7df3;
-  text-shadow: 0 0 12px rgba(80, 120, 255, 0.45),
-    0 0 24px rgba(80, 120, 255, 0.25);
-}
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
 
-.hero p {
-  margin-top: 18px;
-  font-size: 1.25rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #555;
-}
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
 
-/* -------- Buttons (Apple Style) -------- */
-.buttons {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
 
-.btn {
-  padding: 12px 26px;
-  border-radius: 40px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: 0.25s;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #22d3ee, #3b82f6, #a855f7);
+      transition: width 0.25s;
+    }
 
-.btn-primary {
-  background: #1b1b1f;
-  color: #fff;
-}
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
-.btn-primary:hover {
-  background: #000;
-}
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
 
-.btn-light {
-  background: #fff;
-}
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
 
-.btn-light:hover {
-  background: #f0f0f0;
-}
+    .hero-title {
+      font-size: 2.6rem;
+      line-height: 1.1;
+      font-weight: 650;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
 
-/* -------- Section Title -------- */
-.section {
-  margin-top: 90px;
-}
+    .hero-title span {
+      display: block;
+    }
 
-.section h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  margin-bottom: 18px;
-  text-align: center;
-}
+    .hero-accent {
+      background: linear-gradient(90deg, #22d3ee, #3b82f6, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-/* -------- Skills (AI futuristic chips) -------- */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
+    .hero-sub {
+      font-size: 0.98rem;
+      color: #9ca3af;
+      max-width: 440px;
+      margin-bottom: 20px;
+    }
 
-.skill-chip {
-  padding: 10px 18px;
-  font-size: 0.85rem;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #ffffff, #e8ebf5);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  backdrop-filter: blur(12px);
-}
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-bottom: 22px;
+    }
 
-/* -------- Projects (Apple Cards + AI Glow Borders) -------- */
-.card {
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 22px;
-  margin: 20px 0;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-  border: 1px solid rgba(200, 200, 200, 0.25);
-  transition: 0.35s;
-  position: relative;
-}
+    .meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      color: #9ca3af;
+    }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 60px rgba(0,0,0,0.12);
-}
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.card h3 {
-  font-size: 1.35rem;
-  font-weight: 600;
-  letter-spacing: -0.3px;
-}
+    .btn {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e5e7eb;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+    }
 
-.card p {
-  margin-top: 8px;
-  font-size: 0.95rem;
-  color: #444;
-}
+    .btn-primary {
+      border-color: transparent;
+      background: radial-gradient(circle at top left, #22d3ee 0, #3b82f6 40%, #0f172a 100%);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+    }
 
-.card a {
-  margin-top: 10px;
-  display: inline-block;
-  font-size: 0.9rem;
-  color: #3c6bff;
-  text-decoration: none;
-}
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+    }
 
-.card a:hover {
-  text-decoration: underline;
-}
+    .btn-secondary:hover {
+      background: rgba(31, 41, 55, 0.95);
+    }
 
-/* -------- Footer -------- */
-footer {
-  margin-top: 90px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #777;
-  padding-bottom: 40px;
-}
+    .btn span.icon {
+      font-size: 1rem;
+    }
 
-</style>
+    /* Hero right: typing + glow card */
+    .hero-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 20px 18px;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95) 0, #020617 60%);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      box-shadow: 0 0 32px rgba(37, 99, 235, 0.35);
+      overflow: hidden;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(26px);
+      opacity: 0.7;
+    }
+
+    .hero-card::before {
+      width: 160px;
+      height: 160px;
+      background: rgba(56, 189, 248, 0.3);
+      top: -40px;
+      right: -40px;
+    }
+
+    .hero-card::after {
+      width: 180px;
+      height: 180px;
+      background: rgba(129, 140, 248, 0.25);
+      bottom: -60px;
+      left: -40px;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .typing-line {
+      font-size: 0.96rem;
+      color: #e5e7eb;
+      margin-bottom: 12px;
+    }
+
+    .typing-label {
+      color: #6b7280;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .typing-text {
+      display: inline-block;
+      border-right: 2px solid #38bdf8;
+      padding-right: 4px;
+      margin-left: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .ai-usage {
+      font-size: 0.82rem;
+      color: #9ca3af;
+      margin-top: 8px;
+    }
+
+    .ai-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #cbd5f5;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 64px;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 550;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 18px;
+    }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .skills-group h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skills-tag {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    /* Cards for projects/experience */
+    .card {
+      border-radius: 18px;
+      padding: 18px 16px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      margin-bottom: 14px;
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 0 24px rgba(15, 118, 215, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 550;
+    }
+
+    .card-meta {
+      font-size: 0.75rem;
+      color: #6b7280;
+      text-align: right;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .card-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: #38bdf8;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 18px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+  </style>
 </head>
-
 <body>
-<div class="container">
+  <div class="page">
+    <!-- Top bar -->
+    <header>
+      <div class="logo">HARDIK · PATEL</div>
+      <nav class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Hardik Patel</h1>
-    <h1 class="ai-glow">AI-Powered Full Stack Developer</h1>
-    <p>I build modern, scalable SaaS platforms using Next.js, NestJS, MongoDB, and AI-driven development tools. Focused on clean engineering, premium UX, and fast delivery.</p>
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">
+          <span>AI-Powered</span>
+          <span class="hero-accent">Full&nbsp;Stack&nbsp;Developer</span>
+        </h1>
+        <p class="hero-sub">
+          I design and ship production-ready SaaS platforms using Next.js, NestJS, Node.js,
+          and modern AI tooling — with a focus on clean engineering, fast iterations, and real business impact.
+        </p>
+        <div class="hero-meta">
+          <div><span class="meta-label">Location</span> · Ahmedabad, India</div>
+          <div><span class="meta-label">Experience</span> · 9+ years</div>
+        </div>
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">
+            <span class="icon">⚡</span><span>View my work</span>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span class="icon">✉️</span><span>Contact</span>
+          </a>
+        </div>
+      </div>
 
-    <div class="buttons">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="#skills" class="btn btn-light">Skills</a>
-    </div>
-  </section>
+      <aside class="hero-card">
+        <div class="hero-card-inner">
+          <div class="hero-card-label">Live now</div>
+          <div class="typing-line">
+            <span class="typing-label">I’m currently building</span>
+            <span id="typing" class="typing-text"></span>
+          </div>
+          <div class="ai-usage">
+            Using AI-assisted workflows (Cursor, Warp, Trae, OpenRouter, Task Master) to move from idea to
+            production up to <strong>4× faster</strong>.
+          </div>
+          <div class="ai-tools">
+            <span class="tag">Next.js</span>
+            <span class="tag">NestJS</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">AI-driven dev</span>
+          </div>
+        </div>
+      </aside>
+    </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span class="skill-chip">React.js</span>
-      <span class="skill-chip">Next.js</span>
-      <span class="skill-chip">Node.js</span>
-      <span class="skill-chip">NestJS</span>
-      <span class="skill-chip">MongoDB</span>
-      <span class="skill-chip">PostgreSQL</span>
-      <span class="skill-chip">AWS</span>
-      <span class="skill-chip">Cursor</span>
-      <span class="skill-chip">Warp</span>
-      <span class="skill-chip">Trae</span>
-      <span class="skill-chip">OpenRouter</span>
-      <span class="skill-chip">AI-Driven Development</span>
-    </div>
-  </section>
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <h2>Featured Projects</h2>
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">GetIndexedNow – SEO SaaS</div>
+          <div class="card-meta">Solo build · React · Node · PostgreSQL</div>
+        </div>
+        <div class="card-body">
+          SEO-focused SaaS product to accelerate indexing and visibility. Designed, implemented, and deployed end-to-end
+          in under two months — from architecture to production hosting and background job queues.
+        </div>
+        <div class="card-tags">
+          <span class="tag">React.js</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Bull / MQ</span>
+          <span class="tag">SaaS</span>
+        </div>
+        <a href="https://getindexednow.com" target="_blank" class="card-link">getindexednow.com →</a>
+      </article>
 
-    <div class="card">
-      <h3>GetIndexedNow (SaaS)</h3>
-      <p>AI-boosted SEO indexing platform built with React.js, Node.js, PostgreSQL and Bull MQ. Designed, developed and deployed solo within 2 months.</p>
-      <a href="https://getindexednow.com" target="_blank">Visit Project →</a>
-    </div>
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">Ubicquia – Smart City Lighting</div>
+          <div class="card-meta">Enterprise · Angular · Laravel</div>
+        </div>
+        <div class="card-body">
+          Contributed to a multi-tenant smart-city platform with modular Angular frontends and Keycloak-based
+          authentication. Focus on reusable UI components, responsive layouts, and robust permission handling.
+        </div>
+        <div class="card-tags">
+          <span class="tag">Angular</span>
+          <span class="tag">Laravel</span>
+          <span class="tag">Multi-tenant</span>
+          <span class="tag">Keycloak</span>
+        </div>
+        <a href="https://www.ubicquia.com" target="_blank" class="card-link">ubicquia.com →</a>
+      </article>
 
-    <div class="card">
-      <h3>Ubicquia – Smart City Platform</h3>
-      <p>Enterprise-grade smart-lighting and grid-intelligence platform. Developed Angular modules, multi-tenant UI, and Keycloak integration.</p>
-      <a href="https://ubicquia.com" target="_blank">Visit Website →</a>
-    </div>
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">LEADR – People Development Platform</div>
+          <div class="card-meta">Product · Angular · Node</div>
+        </div>
+        <div class="card-body">
+          Implemented scalable Angular components, design systems, and performance-focused UI for a global
+          people-development platform. Worked with sprint-based delivery and code-review cycles.
+        </div>
+        <div class="card-tags">
+          <span class="tag">Angular</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Design system</span>
+        </div>
+        <a href="https://www.leadr.com" target="_blank" class="card-link">leadr.com →</a>
+      </article>
+    </section>
 
-    <div class="card">
-      <h3>LEADR – People Development System</h3>
-      <p>Designed and built scalable Angular components, theme systems, and sprint-driven architecture for a global product.</p>
-      <a href="https://www.leadr.com" target="_blank">Visit Website →</a>
-    </div>
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
 
-  </section>
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">Full Stack Developer · Self-Employed</div>
+          <div class="card-meta">2025 – Present · Remote</div>
+        </div>
+        <div class="card-body">
+          Building AI-powered SaaS products and internal tools using Next.js, NestJS, and modern AI dev stacks.
+          Owning the full lifecycle from problem definition and UX to deployment and support.
+        </div>
+      </article>
 
-  <footer>
-    © 2025 Hardik Patel — Built with AI-Driven Development
-  </footer>
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">Full Stack Developer · Project Manager</div>
+          <div class="card-meta">Digipineinfotech · 2024 – Present</div>
+        </div>
+        <div class="card-body">
+          Leading development teams, planning sprints, reviewing code, and delivering full-stack features across web
+          applications, with a focus on predictable delivery and clean architecture.
+        </div>
+      </article>
 
-</div>
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">Full Stack Developer</div>
+          <div class="card-meta">Novus Logics · 2017 – 2024</div>
+        </div>
+        <div class="card-body">
+          Built and maintained complex frontends and APIs using React, Angular, Node.js, and Laravel. Collaborated
+          closely with designers and backend engineers on performance-sensitive projects.
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">PHP Developer</div>
+          <div class="card-meta">Mind Inventory · 2015 – 2017</div>
+        </div>
+        <div class="card-body">
+          Developed custom PHP applications and CMS solutions, integrating third-party APIs and optimizing for
+          performance and maintainability.
+        </div>
+      </article>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skills-group">
+          <h3>Frontend</h3>
+          <div class="skills-tags">
+            <span class="skills-tag">React.js</span>
+            <span class="skills-tag">Next.js</span>
+            <span class="skills-tag">Angular</span>
+            <span class="skills-tag">Vue.js</span>
+            <span class="skills-tag">Svelte</span>
+            <span class="skills-tag">Tailwind CSS</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>Backend</h3>
+          <div class="skills-tags">
+            <span class="skills-tag">Node.js</span>
+            <span class="skills-tag">NestJS</span>
+            <span class="skills-tag">Express.js</span>
+            <span class="skills-tag">Laravel</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>Data & Infra</h3>
+          <div class="skills-tags">
+            <span class="skills-tag">MongoDB</span>
+            <span class="skills-tag">PostgreSQL</span>
+            <span class="skills-tag">MySQL</span>
+            <span class="skills-tag">Redis</span>
+            <span class="skills-tag">AWS</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>AI & Dev Workflow</h3>
+          <div class="skills-tags">
+            <span class="skills-tag">Cursor</span>
+            <span class="skills-tag">Warp</span>
+            <span class="skills-tag">Trae</span>
+            <span class="skills-tag">OpenRouter</span>
+            <span class="skills-tag">Task Master</span>
+            <span class="skills-tag">AI-assisted delivery</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <div class="card-body">
+          Open to remote opportunities, SaaS collaborations, and AI-driven product work.
+          <br /><br />
+          <strong>Email:</strong>
+          <a href="mailto:hardikpatel.nl@gmail.com" class="card-link">
+            hardikpatel.nl@gmail.com
+          </a>
+          <br />
+          <strong>Phone:</strong> +91&nbsp;96387&nbsp;56554
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>© 2025 Hardik Patel</div>
+      <div class="footer-links">
+        <a href="https://getindexednow.com" target="_blank">GetIndexedNow</a>
+        <a href="https://github.com/hardik-novus" target="_blank">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Typing effect script -->
+  <script>
+    const phrases = [
+      "AI-powered SaaS platforms.",
+      "developer-first internal tools.",
+      "fast, production-ready MVPs.",
+      "scalable full-stack architectures."
+    ];
+
+    const typingEl = document.getElementById("typing");
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeLoop() {
+      const current = phrases[phraseIndex];
+
+      if (!deleting) {
+        typingEl.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(typeLoop, 1200);
+          return;
+        }
+      } else {
+        typingEl.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+      }
+
+      const speed = deleting ? 40 : 70;
+      setTimeout(typeLoop, speed);
+    }
+
+    typeLoop();
+  </script>
 </body>
 </html>
