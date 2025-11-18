@@ -1,491 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Hardik Patel – Full Stack Developer | AI-Powered Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Hardik Patel - Full Stack Developer building AI-powered, scalable web applications." />
-  <style>
-    :root {
-      --bg-color: #f5f7fb;
-      --card-bg: #ffffff;
-      --accent: #2563eb;
-      --accent-soft: #dbeafe;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border-color: #e5e7eb;
-      --chip-bg: #eef2ff;
-      --chip-text: #3730a3;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hardik Patel – Full Stack Developer & AI Engineer</title>
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
+/* -------- Global Reset -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+/* -------- Apple Font -------- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    Inter, system-ui, sans-serif;
+  background: #f5f5f7;
+  color: #1b1b1f;
+  line-height: 1.6;
+}
 
-    .page {
-      max-width: 1000px;
-      margin: 24px auto;
-      padding: 16px;
-    }
+/* -------- Layout -------- */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
 
-    .card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-      border: 1px solid var(--border-color);
-    }
+/* -------- Hero (Apple Style + AI Glow) -------- */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
 
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 16px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 16px;
-      margin-bottom: 20px;
-    }
+.hero h1 {
+  font-size: 3.4rem;
+  letter-spacing: -1px;
+  font-weight: 700;
+}
 
-    .name-block {
-      min-width: 220px;
-    }
+.ai-glow {
+  color: #4f7df3;
+  text-shadow: 0 0 12px rgba(80, 120, 255, 0.45),
+    0 0 24px rgba(80, 120, 255, 0.25);
+}
 
-    h1 {
-      font-size: 2rem;
-      margin: 0;
-      letter-spacing: 0.03em;
-    }
+.hero p {
+  margin-top: 18px;
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #555;
+}
 
-    .role-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-top: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
+/* -------- Buttons (Apple Style) -------- */
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
 
-    .contact {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-align: right;
-    }
+.btn {
+  padding: 12px 26px;
+  border-radius: 40px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.25s;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+.btn-primary {
+  background: #1b1b1f;
+  color: #fff;
+}
 
-    .contact a:hover {
-      text-decoration: underline;
-    }
+.btn-primary:hover {
+  background: #000;
+}
 
-    h2 {
-      font-size: 1.1rem;
-      margin: 18px 0 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-    }
+.btn-light {
+  background: #fff;
+}
 
-    .summary {
-      font-size: 0.95rem;
-      margin-bottom: 8px;
-    }
+.btn-light:hover {
+  background: #f0f0f0;
+}
 
-    .summary-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 4px 20px;
-      font-size: 0.9rem;
-      padding-left: 18px;
-      margin: 6px 0 0;
-    }
+/* -------- Section Title -------- */
+.section {
+  margin-top: 90px;
+}
 
-    .tag-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
+.section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
+  text-align: center;
+}
 
-    .chip {
-      font-size: 0.8rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: var(--chip-bg);
-      color: var(--chip-text);
-      border: 1px solid rgba(129, 140, 248, 0.4);
-      white-space: nowrap;
-    }
+/* -------- Skills (AI futuristic chips) -------- */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
 
-    .section {
-      margin-top: 16px;
-    }
+.skill-chip {
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffffff, #e8ebf5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(12px);
+}
 
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
-      gap: 24px;
-    }
+/* -------- Projects (Apple Cards + AI Glow Borders) -------- */
+.card {
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 22px;
+  margin: 20px 0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  border: 1px solid rgba(200, 200, 200, 0.25);
+  transition: 0.35s;
+  position: relative;
+}
 
-    .subsection-title {
-      font-weight: 600;
-      font-size: 0.94rem;
-      margin-bottom: 4px;
-      color: var(--text-main);
-    }
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 60px rgba(0,0,0,0.12);
+}
 
-    .pill-label {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
+.card h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
 
-    .experience-item,
-    .project-item {
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px dashed var(--border-color);
-    }
+.card p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #444;
+}
 
-    .experience-item:last-child,
-    .project-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
+.card a {
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #3c6bff;
+  text-decoration: none;
+}
 
-    .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
+.card a:hover {
+  text-decoration: underline;
+}
 
-    .exp-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+/* -------- Footer -------- */
+footer {
+  margin-top: 90px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  padding-bottom: 40px;
+}
 
-    .exp-meta span {
-      margin-left: 10px;
-    }
-
-    ul {
-      margin: 4px 0 0;
-      padding-left: 18px;
-      font-size: 0.9rem;
-    }
-
-    li {
-      margin-bottom: 3px;
-    }
-
-    .edu-item {
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
-
-    .link {
-      font-size: 0.86rem;
-      color: var(--accent);
-      text-decoration: none;
-      word-break: break-all;
-    }
-
-    .link:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 720px) {
-      header {
-        text-align: left;
-      }
-      .contact {
-        text-align: left;
-      }
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-      .page {
-        margin: 8px auto;
-        padding: 8px;
-      }
-      .card {
-        padding: 16px;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <div class="card">
-      <header>
-        <div class="name-block">
-          <h1>Hardik Patel</h1>
-          <div class="role-title">Full Stack Developer · AI-Powered Solutions</div>
-        </div>
-        <div class="contact">
-          <div><a href="mailto:hardikpatel.nl@gmail.com">hardikpatel.nl@gmail.com</a></div>
-          <div>+91&nbsp;96387&nbsp;56554</div>
-          <div>Ahmedabad · India</div>
-        </div>
-      </header>
+<div class="container">
 
-      <section class="section">
-        <h2>Profile Summary</h2>
-        <p class="summary">
-          Innovative Full Stack Developer with a strong track record in delivering scalable, high-performing web
-          applications and AI-powered solutions. Experienced in building end-to-end SaaS platforms and accelerating
-          development using modern tools such as Warp, Cursor, Task Master, OpenRouter, and Trae to achieve up to 4x
-          faster delivery. Known for problem-solving, adaptability, and effective collaboration with cross-functional
-          teams, while continuously learning to stay ahead in a fast-changing tech landscape.
-        </p>
-        <ul class="summary-list">
-          <li>Advanced front-end development expertise with modern JavaScript frameworks.</li>
-          <li>Self-motivated, target-driven, and recognized for high productivity and multitasking.</li>
-          <li>Strong written and verbal communication, with focus on team consensus and collaboration.</li>
-          <li>Adheres to software engineering standards, best practices, and progressive enhancement.</li>
-          <li>Element-driven boilerplate development and reusable component-based architecture.</li>
-          <li>Strong debugging, optimization, and problem-solving capabilities.</li>
-        </ul>
-      </section>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Hardik Patel</h1>
+    <h1 class="ai-glow">AI-Powered Full Stack Developer</h1>
+    <p>I build modern, scalable SaaS platforms using Next.js, NestJS, MongoDB, and AI-driven development tools. Focused on clean engineering, premium UX, and fast delivery.</p>
 
-      <section class="section">
-        <div class="two-col">
-          <!-- Skills -->
-          <div>
-            <h2>Skills & Technologies</h2>
-
-            <div class="subsection">
-              <div class="subsection-title">Frontend</div>
-              <div class="tag-grid">
-                <span class="chip">Vue.js</span>
-                <span class="chip">React.js</span>
-                <span class="chip">Angular</span>
-                <span class="chip">Next.js</span>
-                <span class="chip">Svelte</span>
-                <span class="chip">Tailwind CSS</span>
-                <span class="chip">HTML5</span>
-                <span class="chip">CSS3</span>
-                <span class="chip">JavaScript</span>
-                <span class="chip">JSON</span>
-                <span class="chip">AJAX</span>
-                <span class="chip">jQuery</span>
-                <span class="chip">SCSS</span>
-                <span class="chip">Bootstrap</span>
-              </div>
-            </div>
-
-            <div class="subsection">
-              <div class="subsection-title">Backend</div>
-              <div class="tag-grid">
-                <span class="chip">Node.js</span>
-                <span class="chip">NestJS</span>
-                <span class="chip">Express.js</span>
-                <span class="chip">Laravel</span>
-              </div>
-            </div>
-
-            <div class="subsection">
-              <div class="subsection-title">AI-Powered Development</div>
-              <div class="tag-grid">
-                <span class="chip">Cursor</span>
-                <span class="chip">Warp</span>
-                <span class="chip">Trae</span>
-                <span class="chip">OpenRouter</span>
-                <span class="chip">Task Master</span>
-              </div>
-            </div>
-
-            <div class="subsection">
-              <div class="subsection-title">Databases & Storage</div>
-              <div class="tag-grid">
-                <span class="chip">MySQL</span>
-                <span class="chip">MongoDB</span>
-                <span class="chip">PostgreSQL</span>
-                <span class="chip">Drizzle ORM</span>
-                <span class="chip">Prisma ORM</span>
-              </div>
-            </div>
-
-            <div class="subsection">
-              <div class="subsection-title">DevOps & Other</div>
-              <div class="tag-grid">
-                <span class="chip">AWS</span>
-                <span class="chip">CI/CD</span>
-                <span class="chip">Apache Kafka</span>
-                <span class="chip">Redis</span>
-                <span class="chip">Keycloak</span>
-                <span class="chip">Redux</span>
-                <span class="chip">React SWR</span>
-                <span class="chip">GitHub</span>
-                <span class="chip">Git</span>
-                <span class="chip">Postman</span>
-                <span class="chip">JIRA</span>
-                <span class="chip">Asana</span>
-                <span class="chip">ClickUp</span>
-                <span class="chip">VS Code</span>
-                <span class="chip">WebStorm</span>
-                <span class="chip">PhpStorm</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Education -->
-          <div>
-            <h2>Education</h2>
-            <div class="edu-item">
-              <strong>Master of Computer Applications (MCA)</strong><br />
-              Gujarat Technological University – GLS College
-            </div>
-            <div class="edu-item">
-              <strong>Bachelor of Computer Applications (BCA)</strong><br />
-              Kadi University, Gandhinagar
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Work Experience</h2>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>Self-Employed · Full Stack Developer (AI-Powered)</div>
-            <div class="exp-meta">
-              Ahmedabad · Remote
-              <span>2025 – Present</span>
-            </div>
-          </div>
-          <ul>
-            <li>Designed and delivered AI-powered SaaS platforms with integrated content editors for workflow automation.</li>
-            <li>Built full-stack solutions using Next.js, NestJS, MongoDB, and Tailwind CSS with a focus on scalability and performance.</li>
-            <li>Developed custom AI-powered editors for content creation with real-time suggestions and automation.</li>
-            <li>Managed end-to-end project lifecycles: requirements, architecture, implementation, deployment, and ongoing support.</li>
-            <li>Collaborated directly with clients to deliver modern, user-friendly solutions and drive digital transformation.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>Full Stack Developer · Project Manager</div>
-            <div class="exp-meta">
-              Digipineinfotech, Gandhinagar
-              <span>2024 – Present</span>
-            </div>
-          </div>
-          <ul>
-            <li>Leading a team of developers while managing entire project lifecycles.</li>
-            <li>Planning, coding, reviewing, and optimizing full-stack applications.</li>
-            <li>Conducting sprint planning, backlog grooming, and retrospectives to ensure predictable delivery.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>Full Stack Developer</div>
-            <div class="exp-meta">
-              Novus Logics, Ahmedabad
-              <span>2017 – 2024</span>
-            </div>
-          </div>
-          <ul>
-            <li>Developed complex web applications using React, Angular, Node.js, and Laravel.</li>
-            <li>Collaborated with designers and backend teams to build user-centric, responsive applications.</li>
-            <li>Contributed to scalable architecture and reusable component libraries.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>PHP Developer</div>
-            <div class="exp-meta">
-              Mind Inventory, Ahmedabad
-              <span>2015 – 2017</span>
-            </div>
-          </div>
-          <ul>
-            <li>Developed and maintained PHP-based CMS and custom web applications.</li>
-            <li>Focused on clean code, performance optimization, and third-party API integration.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Key Projects</h2>
-
-        <div class="project-item">
-          <div class="exp-header">
-            <div>GetIndexedNow – Solo SaaS Development</div>
-            <div class="exp-meta">Latest</div>
-          </div>
-          <span class="pill-label">React.js · Node.js · PostgreSQL · Bull/MQ</span>
-          <ul>
-            <li>Built and launched an SEO-focused SaaS product, <strong>GetIndexedNow</strong>, within 2 months as a solo developer.</li>
-            <li>Implemented the frontend in React.js and the backend in Node.js with PostgreSQL.</li>
-            <li>Used Bull/MQ for reliable background job processing and task management.</li>
-            <li>Owned the complete lifecycle: requirements, architecture, coding, testing, deployment, and hosting.</li>
-            <li>Delivered a production-ready, scalable platform optimized for search indexing and performance.</li>
-          </ul>
-          <div>
-            <a class="link" href="https://getindexednow.com/" target="_blank" rel="noopener noreferrer">
-              https://getindexednow.com/
-            </a>
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="exp-header">
-            <div>Ubicquia – Smart City Lighting Solutions</div>
-          </div>
-          <span class="pill-label">Angular · Laravel · Multi-Tenant · Keycloak</span>
-          <ul>
-            <li>Developed modular, reusable UI components following element-driven boilerplate principles.</li>
-            <li>Implemented responsive design across devices and screen sizes.</li>
-            <li>Worked within a sprint-driven environment to ensure on-time delivery.</li>
-            <li>Managed multiple tenant customers and implemented Keycloak for authentication and permission management.</li>
-          </ul>
-          <div>
-            <a class="link" href="https://www.ubicquia.com/" target="_blank" rel="noopener noreferrer">
-              https://www.ubicquia.com/
-            </a>
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="exp-header">
-            <div>LEADR – People Development Platform</div>
-          </div>
-          <span class="pill-label">Angular · Node.js · GitLab · Responsive UI</span>
-          <ul>
-            <li>Designed performance-optimized UI architecture for a large-scale people development platform.</li>
-            <li>Developed SASS-based themes and reusable component libraries.</li>
-            <li>Led the frontend team through sprint cycles, code reviews, and best practice adoption.</li>
-          </ul>
-          <div>
-            <a class="link" href="https://www.leadr.com/" target="_blank" rel="noopener noreferrer">
-              https://www.leadr.com/
-            </a>
-          </div>
-        </div>
-      </section>
+    <div class="buttons">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#skills" class="btn btn-light">Skills</a>
     </div>
-  </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills">
+      <span class="skill-chip">React.js</span>
+      <span class="skill-chip">Next.js</span>
+      <span class="skill-chip">Node.js</span>
+      <span class="skill-chip">NestJS</span>
+      <span class="skill-chip">MongoDB</span>
+      <span class="skill-chip">PostgreSQL</span>
+      <span class="skill-chip">AWS</span>
+      <span class="skill-chip">Cursor</span>
+      <span class="skill-chip">Warp</span>
+      <span class="skill-chip">Trae</span>
+      <span class="skill-chip">OpenRouter</span>
+      <span class="skill-chip">AI-Driven Development</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <h2>Featured Projects</h2>
+
+    <div class="card">
+      <h3>GetIndexedNow (SaaS)</h3>
+      <p>AI-boosted SEO indexing platform built with React.js, Node.js, PostgreSQL and Bull MQ. Designed, developed and deployed solo within 2 months.</p>
+      <a href="https://getindexednow.com" target="_blank">Visit Project →</a>
+    </div>
+
+    <div class="card">
+      <h3>Ubicquia – Smart City Platform</h3>
+      <p>Enterprise-grade smart-lighting and grid-intelligence platform. Developed Angular modules, multi-tenant UI, and Keycloak integration.</p>
+      <a href="https://ubicquia.com" target="_blank">Visit Website →</a>
+    </div>
+
+    <div class="card">
+      <h3>LEADR – People Development System</h3>
+      <p>Designed and built scalable Angular components, theme systems, and sprint-driven architecture for a global product.</p>
+      <a href="https://www.leadr.com" target="_blank">Visit Website →</a>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 Hardik Patel — Built with AI-Driven Development
+  </footer>
+
+</div>
 </body>
 </html>
